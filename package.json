@@ -31,7 +31,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "playwright test",
-    "test:headed": "playwright test --headed"
+    "test:headed": "node --no-warnings node_modules/.bin/playwright test --headed"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [

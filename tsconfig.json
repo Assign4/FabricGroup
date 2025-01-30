@@ -12,6 +12,6 @@
     "types": ["node", "@playwright/test"],
     "resolveJsonModule": true
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.json"],
   "exclude": ["node_modules"]
 }
