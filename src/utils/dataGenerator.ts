@@ -1,12 +1,10 @@
 import { faker } from '@faker-js/faker';
+import { TestData } from '../pages';
+import { UserData } from './types';
 
 export class DataGenerator {
-  static generateUniqueUsername(): string {
-    return `user_${faker.string.alphanumeric(8)}`;
-  }
-
-  static generateCustomerData() {
-    return {
+  generateCustomerData(): TestData {
+    const userData: UserData = {
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
       address: faker.location.streetAddress(),
@@ -15,6 +13,9 @@ export class DataGenerator {
       zipCode: faker.location.zipCode(),
       phone: faker.phone.number(),
       ssn: faker.string.numeric(9),
+      username: faker.internet.displayName(),
+      password: faker.lorem.words(1),
     };
+    return { userData };
   }
 }

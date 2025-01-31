@@ -1,0 +1,15 @@
+{
+  "registerBtn": "//a[text()='Register']",
+  "firstName": "[id='customer.firstName']",
+  "lastName": "[id='customer.lastName']",
+  "street": "[id='customer.address.street']",
+  "city": "[id='customer.address.city']",
+  "state": "[id='customer.address.state']",
+  "zipCode": "[id='customer.address.zipCode']",
+  "phoneNumber": "[id='customer.phoneNumber']",
+  "ssn": "[id='customer.ssn']",
+  "username": "[id='customer.username']",
+  "password": "[id='customer.password']",
+  "repeatedPassword": "[id='repeatedPassword']",
+  "confirmRegisterBtn": "//input[@value='Register']"
+}

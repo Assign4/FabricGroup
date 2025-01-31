@@ -1,8 +1,11 @@
 import { Page, Locator } from '@playwright/test';
-import { LoginPage } from '.';
+import { LoginPage, Register } from '.';
+import { DataGenerator } from '../utils/dataGenerator';
 
 export type Pages = {
   loginPage: LoginPage;
+  register: Register;
+  dataGenerator: DataGenerator;
 };
 
 export type PageLocators = Record<string, string>;

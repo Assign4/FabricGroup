@@ -17,11 +17,15 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-prettier": "^5.2.3",
+    "faker": "^6.6.6",
     "globals": "^15.14.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.4.3",
+    "pactum": "^3.7.1",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.41.2"
   },
   "scripts": {
     "prepare": "husky install",
