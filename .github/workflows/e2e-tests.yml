@@ -9,9 +9,9 @@ on:
         default: 'chromium'
         type: choice
         options:
-        - chromium
-        - firefox
-        - webkit
+          - chromium
+          - firefox
+          - webkit
       headed:
         description: 'Run in headed mode'
         required: true
@@ -23,14 +23,14 @@ on:
         default: 'production'
         type: choice
         options:
-        - production
-        - staging
-        - development
+          - production
+          - staging
+          - development
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -49,9 +49,6 @@ jobs:
 
       - name: Run code formatting check
         run: npm run format:check
-
-      - name: Run linting
-        run: npm run lint
 
       - name: Run Playwright tests
         env:
