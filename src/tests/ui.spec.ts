@@ -21,7 +21,6 @@ test.describe('ParaBank E2E Test Suite', () => {
     pactum.request.setBaseUrl('https://parabank.parasoft.com/parabank');
     pactum.request.setDefaultTimeout(10000);
     pactum.settings.setDataDirectory('src/data');
-    pactum.stash.loadData('src/data');
   });
 
   /**
