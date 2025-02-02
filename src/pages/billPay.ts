@@ -15,7 +15,7 @@ export class BillPayPage extends BasePage {
       city: faker.location.city(),
       state: faker.location.state(),
       zipCode: faker.location.zipCode(),
-      phone: faker.phone.number('###-###-####'),
+      phone: faker.phone.number(),
       accountNumber: faker.finance.accountNumber(10),
       amount: '50.00',
       fromAccount: accountNumber,
