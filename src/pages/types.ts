@@ -42,14 +42,8 @@ export interface PageConstructor {
   page: Page;
 }
 
-export interface BillPayDetails {
+export interface BillPaymentDetails {
   payeeName: string;
-  address: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  phone: string;
-  accountNumber: string;
   amount: string;
   fromAccount: string;
 }

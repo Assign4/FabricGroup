@@ -10,5 +10,9 @@
   "verifyAccount": "input[name='verifyAccount']",
   "amount": "input[name='amount']",
   "fromAccountSelect": "select[name='fromAccountId']",
-  "sendPaymentButton": "input[value='Send Payment']"
+  "sendPaymentButton": "//input[@value='Send Payment']",
+  "successContainer": "#billpayResult",
+  "successPayeeName": "#payeeName",
+  "successAmount": "#amount",
+  "successFromAccount": "#fromAccountId"
 }

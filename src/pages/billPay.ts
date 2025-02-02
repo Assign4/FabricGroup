@@ -2,6 +2,8 @@ import { BasePage } from './basePage';
 // @ts-ignore
 import billPayLocators from '../locators/billPay.json' with { type: 'json' };
 import { faker } from '@faker-js/faker';
+import { BillPaymentDetails } from '.';
+import { expect } from '@playwright/test';
 
 export class BillPayPage extends BasePage {
   private readonly elements = this.initializeLocators(billPayLocators);
@@ -31,5 +33,24 @@ export class BillPayPage extends BasePage {
     await this.fillInput(this.elements.amount, billPayDetails.amount);
     await this.elements.fromAccountSelect.selectOption(billPayDetails.fromAccount);
     await this.clickElement(this.elements.sendPaymentButton);
+
+    const billPay: BillPaymentDetails = {
+      payeeName: billPayDetails.payeeName,
+      amount: billPayDetails.amount,
+      fromAccount: billPayDetails.fromAccount,
+    };
+
+    await this.verifyBillPaymentSuccess(billPay);
+  }
+
+  async verifyBillPaymentSuccess(expectedDetails: BillPaymentDetails): Promise<void> {
+    const actualPayeeName = await this.getElementText(this.elements.successPayeeName);
+    const actualAmount = await this.getElementText(this.elements.successAmount);
+    const actualFromAccount = await this.getElementText(this.elements.successFromAccount);
+    const formattedExpectedAmount = `$${parseFloat(expectedDetails.amount).toFixed(2)}`;
+
+    expect(actualPayeeName, 'Payee name should match').toBe(expectedDetails.payeeName);
+    expect(actualAmount, 'Payment amount should match').toBe(formattedExpectedAmount);
+    expect(actualFromAccount, 'From account should match').toBe(expectedDetails.fromAccount);
   }
 }
