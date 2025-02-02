@@ -1,0 +1,81 @@
+name: ParaBank E2E Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Browser to run tests on'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+        - chromium
+        - firefox
+        - webkit
+      headed:
+        description: 'Run in headed mode'
+        required: true
+        default: false
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
+        - development
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ inputs.browser }}
+
+      - name: Run code formatting check
+        run: npm run format:check
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run Playwright tests
+        env:
+          BROWSER: ${{ inputs.browser }}
+          ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          if [ "${{ inputs.headed }}" = "true" ]; then
+            npm run test:headed -- --project=${{ inputs.browser }}
+          else
+            npm test -- --project=${{ inputs.browser }}
+          fi
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ inputs.browser }}
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload test screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-screenshots-${{ inputs.browser }}
+          path: test-results/
+          retention-days: 7

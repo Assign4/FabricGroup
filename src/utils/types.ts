@@ -33,3 +33,10 @@ export interface BillPayData {
   amount: string;
   fromAccount: string;
 }
+
+export interface IResource {
+  name?: string;
+  response?: string;
+  payload?: string;
+  statusCode?: string;
+}

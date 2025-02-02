@@ -44,6 +44,12 @@ export class BasePage {
 
   async getElementText(locator: Locator): Promise<string> {
     await this.waitForElement(locator);
+    const text = await locator.innerText();
+    return text || '';
+  }
+
+  async getElementValue(locator: Locator): Promise<string> {
+    await this.waitForElement(locator);
     const text = await locator.textContent();
     return text || '';
   }
