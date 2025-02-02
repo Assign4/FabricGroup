@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { defineConfig, devices } from '@playwright/test';
-import { config } from 'dot-env';
+import { config } from 'dotenv';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
 
