@@ -20,18 +20,18 @@ export class BillPayPage extends BasePage {
       amount: '50.00',
       fromAccount: accountNumber,
     };
-
-    await this.page.waitForTimeout(2000);
     await this.fillInput(this.elements.payeeName, billPayDetails.payeeName);
     await this.fillInput(this.elements.address, billPayDetails.address);
     await this.fillInput(this.elements.city, billPayDetails.city);
     await this.fillInput(this.elements.state, billPayDetails.state);
     await this.fillInput(this.elements.zipCode, billPayDetails.zipCode);
-    await this.fillInput(this.elements.phone, billPayDetails.phone);
+    await this.fillInput(this.elements.phone, billPayDetails.phone.replace('-', ''));
     await this.fillInput(this.elements.accountNumber, billPayDetails.accountNumber);
     await this.fillInput(this.elements.verifyAccount, billPayDetails.accountNumber);
     await this.fillInput(this.elements.amount, billPayDetails.amount);
     await this.elements.fromAccountSelect.selectOption(billPayDetails.fromAccount);
+
+    await this.page.waitForTimeout(2000);
     await this.clickElement(this.elements.sendPaymentButton);
 
     const billPay: BillPaymentDetails = {
