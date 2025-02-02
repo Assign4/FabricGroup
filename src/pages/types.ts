@@ -1,11 +1,18 @@
-import { Page, Locator } from '@playwright/test';
-import { LoginPage, Register } from '.';
+import { Page } from '@playwright/test';
+import { LoginPage, NavigationMenu, Register } from '.';
 import { DataGenerator } from '../utils/dataGenerator';
+import { OpenAccountPage } from './openNewAccount';
+import { TransferFundsPage } from './transferFunds';
+import { BillPayPage } from './billPay';
 
 export type Pages = {
   loginPage: LoginPage;
   register: Register;
   dataGenerator: DataGenerator;
+  navigationMenu: NavigationMenu;
+  openNewAccount: OpenAccountPage;
+  transferFunds: TransferFundsPage;
+  billPayPage: BillPayPage;
 };
 
 export type PageLocators = Record<string, string>;
@@ -25,10 +32,24 @@ export type TestData = {
   };
 };
 
+export interface TransferDetails {
+  amount: string;
+  fromAccount: string;
+  toAccount: string;
+}
+
 export interface PageConstructor {
   page: Page;
 }
 
-export interface NavigationMenu {
-  [key: string]: Locator;
+export interface BillPayDetails {
+  payeeName: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  phone: string;
+  accountNumber: string;
+  amount: string;
+  fromAccount: string;
 }

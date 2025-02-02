@@ -1,0 +1,13 @@
+{
+  "transferForm": "#transferForm",
+  "amountInput": "#transferForm #amount",
+  "fromAccountSelect": "#fromAccountId",
+  "toAccountSelect": "#toAccountId",
+  "transferButton": "input[value='Transfer']",
+  "amountError": "#amount\\.errors",
+  "transferFormContainer": "#showForm",
+  "successContainer": "#showResult",
+  "successAmount": "#amountResult",
+  "successFromAccount": "#fromAccountIdResult",
+  "successToAccount": "#toAccountIdResult"
+}

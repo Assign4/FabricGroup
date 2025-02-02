@@ -1,0 +1,9 @@
+{
+  "openAccount": "a[href*='openaccount']",
+  "overview": "a[href*='overview']",
+  "transfer": "a[href*='transfer']",
+  "findTrans": "a[href*='findtrans']",
+  "updateProfile": "a[href*='updateprofile']",
+  "requestloan": "a[href*='requestloan']",
+  "billPay": "a[href*='billpay']"
+}

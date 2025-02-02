@@ -2,5 +2,7 @@
   "usernameInput": "input[name='username']",
   "passwordInput": "input[name='password']",
   "loginButton": "input[value='Log In']",
-  "registerLink": "a[href*='register']"
+  "registerLink": "a[href*='register']",
+  "registerBtn": "//a[text()='Register']",
+  "logoutBtn": "a[href*='logout']"
 }

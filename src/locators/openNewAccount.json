@@ -1,0 +1,7 @@
+{
+  "accountTypeSelect": "#type",
+  "fromAccountSelect": "#fromAccountId",
+  "openNewAccountButton": "input[value='Open New Account']",
+  "accountForm": "#openAccountForm",
+  "newAccountId": "#newAccountId"
+}

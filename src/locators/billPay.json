@@ -1,0 +1,14 @@
+{
+  "billPayForm": "#billpayForm",
+  "payeeName": "input[name='payee.name']",
+  "address": "input[name='payee.address.street']",
+  "city": "input[name='payee.address.city']",
+  "state": "input[name='payee.address.state']",
+  "zipCode": "input[name='payee.address.zipCode']",
+  "phone": "input[name='payee.phoneNumber']",
+  "accountNumber": "input[name='payee.accountNumber']",
+  "verifyAccount": "input[name='verifyAccount']",
+  "amount": "input[name='amount']",
+  "fromAccountSelect": "select[name='fromAccountId']",
+  "sendPaymentButton": "input[value='Send Payment']"
+}
