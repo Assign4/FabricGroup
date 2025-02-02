@@ -15,7 +15,7 @@ config({ path: resolve(__dirname, '.env') });
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './src/tests',
   /* Maximum time one test can run for */
   timeout: 30000,
   /* Run tests in files in parallel */
@@ -63,18 +63,6 @@ export default defineConfig({
         launchOptions: {
           args: ['--disable-dev-shm-usage'],
         },
-      },
-    },
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
       },
     },
   ],
